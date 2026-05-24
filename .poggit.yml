@@ -1,0 +1,11 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/BeeAZ-pm-pl/AZCustomFishing
+build-by-default: true
+branches:
+- master
+projects:
+  AZCustomFishing:
+    path: ""
+    libs:
+      - src: dktapps-pm-pl/pmforms/pmforms
+        version: ^2.1.0
+...
