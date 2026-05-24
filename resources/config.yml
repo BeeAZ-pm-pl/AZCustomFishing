@@ -1,0 +1,128 @@
+# The economy plugin to use for transactions.
+# Supported: "AZEconomy", "SimpleEconomy", "EconomyAPI", "BedrockEconomy"
+economy: "AZEconomy"
+
+settings:
+  # Price multiplier for fish caught during the night (18000 to 22000 ticks)
+  night_multiplier: 1.5
+  # Format of dates displayed in the leaderboard
+  date_format: "d/m/Y H:i:s"
+  # System timezone for date calculations (e.g., "Asia/Ho_Chi_Minh")
+  timezone: "Asia/Ho_Chi_Minh"
+
+event:
+  # Enable automatic periodic fishing events
+  enabled: true
+  # Interval between events in seconds (3600 = 1 hour)
+  interval: 3600
+  # Duration of each event in seconds (600 = 10 minutes)
+  duration: 600
+
+# Fishing rod configuration per tier
+# - price: Purchase price
+# - wait_min: Minimum bite time in ticks (20 ticks = 1 second)
+# - wait_max: Maximum bite time in ticks
+# - break_chance: Percentage chance (0-100) of the line snapping
+# - max_size: Maximum fish length (in cm) that can be caught
+rods:
+  1:
+    name: "§fWooden Fishing Rod"
+    price: 1000
+    wait_min: 100
+    wait_max: 200
+    break_chance: 5
+    max_size: 50
+    icon:
+      type: "path"
+      data: "textures/items/fishing_rod"
+  2:
+    name: "§aIron Fishing Rod"
+    price: 5000
+    wait_min: 80
+    wait_max: 150
+    break_chance: 3
+    max_size: 100
+    icon:
+      type: "path"
+      data: "textures/items/fishing_rod"
+  3:
+    name: "§bDiamond Fishing Rod"
+    price: 20000
+    wait_min: 50
+    wait_max: 100
+    break_chance: 1
+    max_size: 250
+    icon:
+      type: "path"
+      data: "textures/items/fishing_rod"
+
+ui:
+  main:
+    title: "§l§1FISHING MENU"
+    content: "§fPlease select a function:"
+    btn_sell:
+      enabled: true
+      text: "§0⚡ §lSell Fish §r§0⚡\n§8Sell fish for money"
+      icon: "textures/ui/gold_coin"
+    btn_buy:
+      enabled: true
+      text: "§0⚡ §lBuy Fishing Rod §r§0⚡\n§8Upgrade tools"
+      icon: "textures/ui/store_home_icon"
+    btn_stats:
+      enabled: true
+      text: "§0⚡ §lLeaderboard §r§0⚡\n§8Top 10 Anglers"
+      icon: "textures/ui/icon_recipe_item"
+  shop:
+    title: "§l§6FISHING ROD SHOP"
+    content: "§fSelect a rod to view details:"
+    btn_format: "§0⚡ §l{name} §r§0⚡\n§8Price: {price}$"
+  preview:
+    title: "§l§1BUY FISHING ROD"
+    content: "§l§eDETAILED INFORMATION\n\n§fName: {name}\n§fPrice: §e{price}$\n§fTier: §a{tier}\n§fWait Time: §b{wait_min}s - {wait_max}s\n§fBreak Chance: §c{break_chance}%\n§fMax Fish Size: §a{max_size} cm"
+    btn_buy:
+      text: "§0⚡ §lBuy Now §r§0⚡\n§8Confirm payment"
+      icon: "textures/ui/confirm"
+    btn_back:
+      text: "§0⚡ §lGo Back §r§0⚡\n§8Back to list"
+      icon: "textures/ui/cancel"
+  top:
+    title: "§l§bFISHING LEADERBOARD"
+    content: "§l§eTOP 10 LARGEST FISH CAUGHT\n\n{list}"
+    line_format: "§f{top}. §a{player} §f- §c{fish} §e({size} cm)\n§7(Time: {time})"
+    empty: "§7No record data yet..."
+    btn_close:
+      text: "§0⚡ §lClose §r§0⚡\n§8Exit menu"
+      icon: "textures/ui/cancel"
+
+messages:
+  prefix: "§l§a[AZCustomFishing] §r"
+  sell_empty: "{prefix}§cYou don't have any fish to sell!"
+  sell_success: "{prefix}§aYou sold all your fish and received §e{money}$!"
+  buy_success: "{prefix}§aSuccessfully purchased {item} §afor §e{price}$!"
+  buy_fail: "{prefix}§cYou don't have enough money to buy this fishing rod!"
+  item_full: "{prefix}§cInventory is full!"
+  player_offline: "{prefix}§cPlayer is offline!"
+  tier_invalid: "{prefix}§cTier does not exist!"
+  give_success: "{prefix}§aGave fishing rod tier {tier} to {player}"
+  event_start: "{prefix}§fFishing event has started! Duration: {time} minutes!"
+  event_end: "{prefix}§fFishing event has ended!"
+  event_top: "§l§e[RESULT] §r§fPlayer §a{player} §freached top 1 with §e{score} §fpoints!"
+  event_reward: "§a{player} §fhas received §e{reward}$ §freward!"
+  event_add_point: "§a+ {points} event points"
+  big_size_broadcast: "§l§0⚡ §6[BIG SIZE] §ePlayer §b{player} §ehas caught a §c{fish} §e({size} cm)! §0⚡"
+  line_break: "§c⚡ LINE SNAPPED! ⚡"
+  line_break_sub: "§7The fish was too strong..."
+  catch_success: "§l§aCAUGHT! §r§e{fish} §f({size} cm) §7| §a+{price} $"
+  not_bite: "§cNothing is biting yet!"
+  missed: "§cMissed!"
+
+# ==========================================
+# LORE CONFIGURATION
+# ==========================================
+items:
+  rod_lore:
+    - "§r§7Tier: §e{tier}"
+    - "§r§7Max Fish Size: §b{max_size} cm"
+  fish_lore:
+    - "§r§fSell Price: §a{price} $"
+    - "§r§7(Sell at /fishing)"
