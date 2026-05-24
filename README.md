@@ -4,23 +4,23 @@ A comprehensive custom fishing plugin for PocketMine-MP 5 (PMMP) servers.
 
 ## Features
 
-* 🎣 **Tiered Fishing Rods**: Supports multiple fishing rod tiers (e.g. wooden, iron, diamond) with customizable line snapping chances, maximum fish sizes, and wait times.
-* 🐟 **Randomized Fish System**: Manage detailed fish lists in `fish.json` (fish name, random length, base price).
-* 🏆 **Leaderboards**: Store and display the top 10 anglers with the largest caught fish using asynchronous SQLite queries to prevent server lag.
-* 💰 **Multi-Economy Integration**:
+* [Rod] **Tiered Fishing Rods**: Supports multiple fishing rod tiers (e.g. wooden, iron, diamond) with customizable line snapping chances, maximum fish sizes, and wait times.
+* [Fish] **Randomized Fish System**: Manage detailed fish lists in `fish.json` (fish name, random length, base price).
+* [Leaderboard] **Leaderboards**: Store and display the top 10 anglers with the largest caught fish using asynchronous SQLite queries to prevent server lag.
+* [Economy] **Multi-Economy Integration**:
   * AZEconomy
   * SimpleEconomy
   * EconomyAPI
   * BedrockEconomy
-* ⏰ **Periodic Fishing Events**: Automate competitive fishing tournaments for players to compete and win rewards.
-* 🖥️ **Friendly UI Menus**: Clean UI forms (`pmforms`) allowing players to buy fishing rods, sell caught fish, and view leaderboards dynamically.
+* [Event] **Periodic Fishing Events**: Automate competitive fishing tournaments for players to compete and win rewards.
+* [UI] **Friendly UI Menus**: Clean UI forms (`pmforms`) allowing players to buy fishing rods, sell caught fish, and view leaderboards dynamically.
 
 ## Commands & Permissions
 
 | Command | Description | Default Role | Permission Node |
 |---------|-------------|--------------|-----------------|
-| `/fishing` | Opens the main fishing UI menu (Sell fish, Buy rod, Top list) | Everyone (`true`) | `azfishing.command.user` |
-| `/givefishing <player> <tier>` | Gives a specific tier fishing rod to a player | OP (`op`) | `azfishing.command.admin` |
+| `/fishing` | Opens the main fishing UI menu (Sell fish, Buy rod, Top list) | Everyone (`true`) | `azcustomfishing.command.user` |
+| `/givefishing <player> <tier>` | Gives a specific tier fishing rod to a player | OP (`op`) | `azcustomfishing.command.admin` |
 
 *Note: The `/fishing` command has `/fishingrod` registered as an alias.*
 
