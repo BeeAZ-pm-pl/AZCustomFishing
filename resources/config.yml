@@ -1,6 +1,6 @@
 # The economy plugin to use for transactions.
-# Supported: "AZEconomy", "SimpleEconomy", "EconomyAPI", "BedrockEconomy"
-economy: "AZEconomy"
+# Supported: "SimpleEconomy", "EconomyAPI", "BedrockEconomy"
+economy: "SimpleEconomy"
 
 settings:
   # Price multiplier for fish caught during the night (18000 to 22000 ticks)

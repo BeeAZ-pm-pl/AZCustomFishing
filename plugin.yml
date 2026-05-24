@@ -4,7 +4,6 @@ main: BeeAZ\AZCustomFishing\Main
 api: 5.0.0
 author: BeeAZ
 softdepend:
-  - AZEconomy
   - SimpleEconomy
   - EconomyAPI
   - BedrockEconomy

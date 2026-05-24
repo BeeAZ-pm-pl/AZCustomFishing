@@ -6,21 +6,18 @@ namespace BeeAZ\AZCustomFishing\utils;
 
 use pocketmine\player\Player;
 use BeeAZ\AZCustomFishing\Main;
-use AZEconomy\AZEconomy;
 use NhanAZ\SimpleEconomy\Main as SimpleEconomy;
 use onebone\economyapi\EconomyAPI;
 use cooldogedev\BedrockEconomy\api\BedrockEconomyAPI;
 
 class EconomyManager {
     public static function getProvider(): string {
-        return Main::getInstance()->getConfig()->get("economy", "AZEconomy");
+        return Main::getInstance()->getConfig()->get("economy", "SimpleEconomy");
     }
 
     public static function getMoney(Player $player, \Closure $callback): void {
         $provider = self::getProvider();
-        if ($provider === "AZEconomy") {
-            $callback(AZEconomy::getInstance()->getMoney($player->getName()));
-        } elseif ($provider === "SimpleEconomy") {
+        if ($provider === "SimpleEconomy") {
             $callback(SimpleEconomy::getInstance()->getMoney($player->getName()) ?? 0);
         } elseif ($provider === "EconomyAPI") {
             $callback(EconomyAPI::getInstance()->myMoney($player));
@@ -37,10 +34,7 @@ class EconomyManager {
 
     public static function addMoney(Player $player, int $amount, \Closure $callback = null): void {
         $provider = self::getProvider();
-        if ($provider === "AZEconomy") {
-            AZEconomy::getInstance()->addMoney($player->getName(), $amount);
-            if ($callback !== null) $callback(true);
-        } elseif ($provider === "SimpleEconomy") {
+        if ($provider === "SimpleEconomy") {
             SimpleEconomy::getInstance()->addMoney($player->getName(), $amount);
             if ($callback !== null) $callback(true);
         } elseif ($provider === "EconomyAPI") {
@@ -59,10 +53,7 @@ class EconomyManager {
 
     public static function reduceMoney(Player $player, int $amount, \Closure $callback): void {
         $provider = self::getProvider();
-        if ($provider === "AZEconomy") {
-            $res = AZEconomy::getInstance()->reduceMoney($player->getName(), $amount);
-            $callback($res);
-        } elseif ($provider === "SimpleEconomy") {
+        if ($provider === "SimpleEconomy") {
             $res = SimpleEconomy::getInstance()->reduceMoney($player->getName(), $amount);
             $callback($res);
         } elseif ($provider === "EconomyAPI") {

@@ -51,7 +51,6 @@ class Main extends PluginBase {
 
         $ecoPlugin = $this->getConfig()->get("economy", "SimpleEconomy");
         $ecoClasses = [
-            "AZEconomy" => \AZEconomy\AZEconomy::class,
             "SimpleEconomy" => \NhanAZ\SimpleEconomy\Main::class,
             "EconomyAPI" => \onebone\economyapi\EconomyAPI::class,
             "BedrockEconomy" => \cooldogedev\BedrockEconomy\api\BedrockEconomyAPI::class
