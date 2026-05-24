@@ -1,0 +1,5 @@
+name: AZCustomFishing
+version: 0.0.1
+main: BeeAZ\AZCustomFishing\Main
+api: 5.0.0
+author: BeeAZ
