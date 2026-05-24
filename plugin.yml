@@ -3,7 +3,11 @@ version: 0.0.1
 main: BeeAZ\AZCustomFishing\Main
 api: 5.0.0
 author: BeeAZ
-softdepend: [AZEconomy, SimpleEconomy, EconomyAPI, BedrockEconomy]
+softdepend:
+  - AZEconomy
+  - SimpleEconomy
+  - EconomyAPI
+  - BedrockEconomy
 permissions:
   azcustomfishing.command.user:
     default: true
